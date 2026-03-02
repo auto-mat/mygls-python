@@ -34,17 +34,20 @@ class GLS:
         client_number: int,
         username: str,
         password: str,
+        webshop_engine: str,
         settings: Settings = Settings(),
     ):
         """
         Args: client_number: MyGLS client number
               username: MyGLS username
               password: MyGLS password
+              webshop_engine: client web shop engine name
               timeout_seconds: network request timeout in seconds
         """
         self.username = username
         self.client_number = client_number
         self.password = self._calculate_password(password)
+        self.webshop_engine = webshop_engine,
         self.settings = settings
 
     def convert_to_datefield(self, date: datetime) -> str:
@@ -191,7 +194,11 @@ class GLS:
         return int(datetime.timestamp(date)) * 1000
 
     def _request_payload(self) -> dict:
-        return {"Username": self.username, "Password": self.password}
+        return {
+            "Username": self.username,
+            "Password": self.password,
+            "WebshopEngine": self.webshop_engine,
+        }
 
     def _save_pdf(self, pdf_path: str, byte_list: list[int]) -> None:
         data = bytes(byte_list)
