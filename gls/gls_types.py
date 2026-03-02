@@ -34,3 +34,13 @@ class PrinterType(Enum):
     A4_4x1 = "A4_4x1"
     CONNECT = "Connect"
     THERMO = "Thermo"
+
+
+class PackageType(Enum):
+    Colli = 1
+    Box = 2
+    Roll = 3
+    Can = 4
+    Case = 5
+    Reel = 6
+    Sack = 7
