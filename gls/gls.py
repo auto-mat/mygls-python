@@ -15,6 +15,7 @@ from .response import (
 )
 from .address import Address
 from .gls_types import PrinterType
+from .parcel_property import ParcelProperty
 from .service import Service
 from .settings import Settings
 
@@ -64,6 +65,7 @@ class GLS:
         pickup_date: datetime,
         reference: str,
         count: int,
+        parcel_property: Optional[ParcelProperty] = {},
         content: Optional[str] = "",
         cod_amount: Optional[float] = 0,
         cod_reference: Optional[str] = "",
@@ -83,6 +85,7 @@ class GLS:
             CODAmount=cod_amount,
             CODReference=cod_reference,
             ServiceList=services,
+            ParcelProperty=parcel_property,
         )
 
     def get_parcels(

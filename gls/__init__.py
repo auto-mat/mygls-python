@@ -3,7 +3,8 @@ from logging import NullHandler
 
 from .gls import GLS
 from .address import Address
-from .gls_types import Code, PrinterType
+from .parcel_property import ParcelProperty
+from .gls_types import Code, PrinterType, PackageType
 from .parcel import Parcel
 from .response import (
     ErrorInfo,
@@ -29,4 +30,4 @@ from .settings import CountryCode, Settings
 
 logging.getLogger(__name__).addHandler(NullHandler())
 
-__all__ = ["gls", "address", "gls_types", "parcel", "response", "service", "settings"]
+__all__ = ["gls", "address", "gls_types", "parcel", "response", "service", "settings", "parcel_property"]
