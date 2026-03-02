@@ -74,7 +74,7 @@ class GLS:
             Content=content,
             PickupAddress=pickup_from,
             DeliveryAddress=deliver_to,
-            PickupDate=self._convert_to_timestamp(pickup_date),
+            PickupDate=self.convert_to_datefield(pickup_date),
             Count=count,
             CODAmount=cod_amount,
             CODReference=cod_reference,
