@@ -1,6 +1,7 @@
 from pydantic.dataclasses import dataclass
 from typing import Optional
 from .parcel import Parcel
+from .parcel_status import ParcelStatus
 
 
 @dataclass
@@ -59,3 +60,16 @@ class DeletedParcelInfo:
 class DeleteLabelsResponse:
     SuccessfullyDeletedList: list[DeletedParcelInfo]
     DeleteLabelsErrorList: list[ErrorInfo]
+
+
+@dataclass
+class ParcelStatusResponse:
+    GetParcelStatusErrors: list[ErrorInfo]
+    ParcelNumber: float
+    ParcelStatusList: list[ParcelStatus]
+    POD: Optional[bytes]
+    Weight: Optional[float]
+    ClientReference: Optional[str]
+    DeliveryCountryCode: Optional[str]
+    DeliveryZipCode: Optional[str]
+    GetParcelStatusError: Optional[list[ErrorInfo]] = None

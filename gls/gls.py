@@ -8,6 +8,7 @@ from dataclasses import asdict
 from .parcel import Parcel
 from .response import (
     ParcelResponse,
+    ParcelStatusResponse,
     PrintedLabelsResponse,
     PrepareLabelsResponse,
     DeleteLabelsResponse,
@@ -164,6 +165,26 @@ class GLS:
             timeout=self.settings.timeout_seconds,
         )
         return PrepareLabelsResponse.__pydantic_model__.parse_raw(response.text)
+
+    def parcel_status(
+            self,
+            parcel_id: int,
+            return_pod: Optional[bool] = False,
+            language_iso_code: Optional[str] = "EN",
+    ) -> PrepareLabelsResponse:
+        """
+        Get parcel status
+        """
+        payload = self._request_payload()
+        payload["ParcelNumber"] = parcel_id
+        payload["ReturnPOD"] = return_pod
+        response = requests.post(
+            f"{self.settings.api_root}/GetParcelStatuses",
+            data=json.dumps(payload),
+            headers=HEADERS,
+            timeout=self.settings.timeout_seconds,
+        )
+        return ParcelStatusResponse.__pydantic_model__.parse_raw(response.text)
 
     def delete_labels(self, parcel_ids: list[int]) -> DeleteLabelsResponse:
         """
