@@ -34,6 +34,11 @@ class PrinterType(Enum):
     A4_4x1 = "A4_4x1"
     CONNECT = "Connect"
     THERMO = "Thermo"
+    THERMO_ZPL = "ThermoZPL"
+    THERMO_ZPL_300_DPI = "ThermoZPL_300DPI"
+    SHIP_IT_THERMO_PDF = "ShipItThermoPdf"
+    SHIP_IT_THERMO_ZPL = "ShipItThermoZpl"
+
 
 
 class PackageType(Enum):
