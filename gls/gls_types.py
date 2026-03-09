@@ -37,8 +37,6 @@ class PrinterType(Enum):
     THERMO_ZPL = "ThermoZPL"
     THERMO_ZPL_300_DPI = "ThermoZPL_300DPI"
     SHIP_IT_THERMO_PDF = "ShipItThermoPdf"
-    SHIP_IT_THERMO_ZPL = "ShipItThermoZpl"
-
 
 
 class PackageType(Enum):
