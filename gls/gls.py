@@ -49,7 +49,7 @@ class GLS:
         self.username = username
         self.client_number = client_number
         self.password = self._calculate_password(password)
-        self.webshop_engine = webshop_engine,
+        self.webshop_engine = webshop_engine
         self.settings = settings
 
     def convert_to_datefield(self, date: datetime) -> str:
